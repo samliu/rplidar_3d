@@ -1,7 +1,6 @@
 # BUILD rules for RPLidar A1 SDK.
 package(default_visibility = ["//visibility:public"])
 
-# All includes accounted for.
 cc_library(
     name = "rplidar",
     hdrs = ["rplidar.c"],
@@ -13,7 +12,6 @@ cc_library(
     ],
 )
 
-# All includes accounted for.
 cc_library(
     name = "rplidar_cmd",
     hdrs = ["rplidar_cmd.c"],
@@ -21,7 +19,6 @@ cc_library(
     deps = [":rplidar_protocol"],
 )
 
-# All includes accounted for.
 cc_library(
     name = "rplidar_driver",
     srcs = ["rplidar_driver.cc"],
@@ -29,7 +26,7 @@ cc_library(
         "rplidar_driver.h",
         "rplidar_driver_serial.h",
     ],
-    linkopts = ["-lpthread"],
+    linkopts = ["-lpthread"],  # Link PThread library.
     deps = [
         ":rplidar_cmd",
         ":sdkcommon",
@@ -40,21 +37,18 @@ cc_library(
     ],
 )
 
-# All includes accounted for.
 cc_library(
     name = "rplidar_protocol",
     hdrs = ["rplidar_protocol.c"],
     copts = ["-std=c99"],
 )
 
-# All includes accounted for.
 cc_library(
     name = "rptypes",
     hdrs = ["rptypes.c"],
     copts = ["-std=c99"],
 )
 
-# All includes accounted for.
 cc_library(
     name = "sdkcommon",
     hdrs = [
