@@ -38,6 +38,8 @@
 #error "The RPlidar SDK requires a C++ compiler to be built"
 #endif
 
+#include <cstddef>
+
 namespace rp {
 namespace standalone {
 namespace rplidar {

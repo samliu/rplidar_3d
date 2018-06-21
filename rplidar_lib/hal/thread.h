@@ -34,7 +34,7 @@
 
 #pragma once
 
-#include "rplidar_lib/rptypes.h"
+#include "rplidar_lib/rptypes.c"
 #include <cstddef>
 #define CLASS_THREAD(c, x) rp::hal::Thread::create_member<c, &c::x>(this)
 

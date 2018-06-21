@@ -33,7 +33,7 @@
  */
 
 #include "rplidar_lib/arch/linux/timer.h"
-#include "rplidar_lib/arch/linux/arch_linux.h"
+#include "rplidar_lib/arch/linux/arch_linux.c"
 
 namespace rp {
 namespace arch {

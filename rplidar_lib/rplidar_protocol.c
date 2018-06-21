@@ -51,6 +51,8 @@
 #pragma pack(1)
 #endif
 
+#include "rplidar_lib/rptypes.c"
+
 typedef struct _rplidar_cmd_packet_t {
   _u8 syncByte; // must be RPLIDAR_CMD_SYNC_BYTE
   _u8 cmd_flag;

@@ -32,9 +32,9 @@
  *
  */
 
-#include "arch/linux/net_serial.h"
-#include "arch/linux/arch_linux.h"
-#include "arch/linux/timer.h"
+#include "rplidar_lib/arch/linux/net_serial.h"
+#include "rplidar_lib/arch/linux/arch_linux.c"
+#include "rplidar_lib/arch/linux/timer.h"
 #include <sys/select.h>
 #include <termios.h>
 

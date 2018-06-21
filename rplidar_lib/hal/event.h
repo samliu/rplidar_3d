@@ -33,6 +33,12 @@
  */
 
 #pragma once
+
+#include <assert.h>
+#include <errno.h>
+#include <pthread.h>
+#include <sys/time.h>
+
 namespace rp {
 namespace hal {
 

@@ -4,7 +4,8 @@ package(default_visibility = ["//visibility:public"])
 # removed the circular dependency when we migrated to bazel.
 cc_library(
     name = "arch_linux",
-    hdrs = ["arch_linux.h"],
+    hdrs = ["arch_linux.c"],
+    copts = ["-std=c99"],
 )
 
 cc_library(
@@ -13,6 +14,7 @@ cc_library(
     hdrs = ["net_serial.h"],
     deps = [
         ":arch_linux",
+        ":timer",
         "//rplidar_lib/hal:abs_rxtx",
     ],
 )
@@ -29,10 +31,10 @@ cc_library(
     name = "timer",
     srcs = ["timer.cc"],
     hdrs = [
-        "arch_linux.h",
         "timer.h",
     ],
     deps = [
+        ":arch_linux",
         "//rplidar_lib:rptypes",
     ],
 )

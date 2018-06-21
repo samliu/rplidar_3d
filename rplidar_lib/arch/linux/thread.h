@@ -32,7 +32,9 @@
  *
  */
 
-#include "rplidar_lib/arch/linux/arch_linux.h"
+#pragma once
+
+#include "rplidar_lib/arch/linux/arch_linux.c"
 #include "rplidar_lib/arch/linux/timer.h"
 
 #include <sched.h>

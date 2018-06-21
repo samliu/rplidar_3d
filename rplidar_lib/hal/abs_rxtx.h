@@ -34,7 +34,8 @@
 
 #pragma once
 
-#include "rplidar_lib/rptypes.h"
+#include "rplidar_lib/rptypes.c"
+#include <cstddef>
 
 namespace rp {
 namespace hal {
