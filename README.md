@@ -11,6 +11,8 @@ their make files I can understand what the dependencies are...
 
 ## Status
 
+### WIP: Converting the RPLidar SDK to compile using Bazel
+
 Doesn't work yet. Seems like some of the headers (at a minimum `rplidar_cmd.h`,
 `rplidar_driver.h`,  `rplidar.h`,  `rplidar_protocol.h`, `rptypes.h` -- possibly
 all of them) are pure C and not C++, written in C99 standard. So when we try to
@@ -23,3 +25,7 @@ is only valid for C/objective C. And all my code is being interpreted as C++
 
 I suspect one solution might be to rename all the headers with `.c` as the
 extension to indicate they are C files. No idea if that'll work.
+
+## Usage
+
+`sudo ./collect_sweeps_main /dev/ttyUSB0`
