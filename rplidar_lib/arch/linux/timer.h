@@ -34,7 +34,7 @@
 
 #pragma once
 
-#include "rplidar_lib/rptypes.h"
+#include "rplidar_lib/rptypes.c"
 
 #include <unistd.h>
 static inline void delay(_word_size_t ms) {

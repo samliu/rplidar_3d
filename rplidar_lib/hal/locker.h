@@ -33,6 +33,10 @@
  */
 
 #pragma once
+
+#include <errno.h>
+#include <pthread.h>
+
 namespace rp {
 namespace hal {
 

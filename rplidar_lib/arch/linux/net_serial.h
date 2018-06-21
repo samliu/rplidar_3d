@@ -34,7 +34,7 @@
 
 #pragma once
 
-#include "hal/abs_rxtx.h"
+#include "rplidar_lib/hal/abs_rxtx.h"
 
 namespace rp {
 namespace arch {

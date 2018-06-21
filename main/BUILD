@@ -5,6 +5,6 @@ cc_binary(
     srcs = ["collect_sweeps_main.cc"],
     deps = [
         "//rplidar_lib:rplidar",
-        "//rplidar_lib:rplidar_dirver",
+        "//rplidar_lib:rplidar_driver",
     ],
 )

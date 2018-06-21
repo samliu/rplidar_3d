@@ -31,14 +31,16 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
+#include <cstddef>
+#include <pthread.h>
 
-#include "rplidar_lib/rplidar.h"
 #include "rplidar_lib/hal/abs_rxtx.h"
 #include "rplidar_lib/hal/event.h"
 #include "rplidar_lib/hal/locker.h"
 #include "rplidar_lib/hal/thread.h"
+#include "rplidar_lib/rplidar.c"
 #include "rplidar_lib/rplidar_driver_serial.h"
-#include "rplidar_lib/sdkcommon.h"
+#include "rplidar_lib/sdkcommon.c"
 
 #ifndef min
 #define min(a, b) (((a) < (b)) ? (a) : (b))

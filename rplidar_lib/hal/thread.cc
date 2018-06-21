@@ -33,8 +33,8 @@
  */
 
 #include "rplidar_lib/hal/thread.h"
-#include "rplidar_lib/rplidar.h"
-#include "rplidar_lib/sdkcommon.h"
+#include "rplidar_lib/rplidar.c"
+#include "rplidar_lib/sdkcommon.c"
 
 #if defined(_WIN32)
 // #include "rplidar_lib/arch/win32/winthread.h"

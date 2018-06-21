@@ -32,18 +32,14 @@
  *
  */
 
-#if defined(_WIN32)
-// #include "rplidar_lib\arch\win32\arch_win32.h"
-#elif defined(_MACOS)
-// #include "rplidar_lib/arch/macOS/arch_macOS.h"
-#elif defined(__GNUC__)
-#include "rplidar_lib/arch/linux/arch_linux.h"
-#include "rplidar_lib/arch/linux/timer.h"
-#else
-#error "unsupported target"
-#endif
+#pragma once
 
-// Note: All users of sdkcommon should separately include rplidar lib.
-// #include "rplidar_lib/rplidar.h"
+#include "rplidar_lib/rplidar_cmd.c"
+#include "rplidar_lib/rplidar_protocol.c"
+#include "rplidar_lib/rptypes.c"
 
-#include "rplidar_lib/hal/util.h"
+// NOTE: Users of the originally "include once" header now
+// need to include this file separately as well thanks to dependency loops :|
+// #include "rplidar_lib/rplidar_driver.h"
+
+#define RPLIDAR_SDK_VERSION "1.5.7"

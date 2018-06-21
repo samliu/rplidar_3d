@@ -2,11 +2,12 @@
  *  Grab frames using RPLidar's SDK.
  */
 
+#include <cstddef>
 #include <stdio.h>
 #include <stdlib.h>
 
 // RPLIDAR standard sdk headers.
-#include "rplidar_lib/include/rplidar.h"
+#include "rplidar_lib/rplidar.c"
 #include "rplidar_lib/rplidar_driver.h"
 
 #ifndef _countof
