@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package rplidar_3d.main;
+
+message LidarScanPoint {
+  optional int64 timestamp_micros = 1;
+  optional double angle_degrees = 2;
+  optional double distance_meters = 3;
+}
+
+message LidarScan { repeated LidarScanPoint scan_point = 1; }

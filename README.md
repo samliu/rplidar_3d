@@ -7,6 +7,13 @@ syncing sweep collections with the angle of the controlling servo.
 
 Unfortuantely the RPLidar SDK build process used makefiles and I hate them. So I re-implemented the entire build using Google's awesome Bazel library. In doing so I identified some random things (e.g circular dependencies, C99 mixed with C++ libraries, etc). It was nice to get all that untangled; now if you want to just use RPLidar's SDK from this repo that's OK too, it's all under `rplidar_lib`. I ran all the code through clang-format as well.
 
+## Installation
+
+Some minor requirements
+
+* Expects Google's Abseil common libraries source to be at
+  `/opt/cpp/abseil-cpp`. Feel free to change this in the `WORKSPACE` file.
+
 ## Build
 
 ~~~bash
