@@ -58,8 +58,6 @@ u_result capture_and_display(RPlidarDriver *driver) {
   rplidar_response_measurement_node_t nodes[360 * 2];
   size_t count = _countof(nodes);
 
-  printf("Waiting for data...\n");
-
   // Fetch exactly one 0-360 degrees' scan.
   ans = driver->grabScanData(nodes, count);
   if (IS_OK(ans) || ans == RESULT_OPERATION_TIMEOUT) {
@@ -79,16 +77,15 @@ u_result capture_and_display(RPlidarDriver *driver) {
       std::string nowtime_micros =
           absl::StrCat(absl::ToUnixMicros(absl::Now()));
 
-      // Print the results.
-      // TODO(samcliu): Write these results to a file. Maybe use a protobuf!
+      // Collect scan data into protobuf.
       rplidar_3d::main::LidarScanPoint scan_point;
       scan_point.set_timestamp_micros(absl::ToUnixMicros(absl::Now()));
       scan_point.set_angle_degrees(theta);
       scan_point.set_distance_meters(distance / 100.0f);
-      // std::cout << "Position: " << pos << std::endl;
-      // printf("Theta %s: %03.2f \n", sync_string.c_str(), theta);
-      // printf("Dist:: %03.2f \n", distance);
-      // std::cout << absl::StrCat(nowtime_micros, "\n\n") << std::endl;
+
+      // Print the results.
+      // TODO(samcliu): Add each point to a LidarScanFrame proto. Write these
+      // results to a file.
       std::cout << scan_point.DebugString() << std::endl;
     }
   } else {

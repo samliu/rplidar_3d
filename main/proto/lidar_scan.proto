@@ -8,4 +8,10 @@ message LidarScanPoint {
   optional double distance_meters = 3;
 }
 
-message LidarScan { repeated LidarScanPoint scan_point = 1; }
+message LidarScanFrame {
+  optional int64 start_micros = 1;
+  optional int64 end_micros = 2;
+  repeated LidarscanPoint scan_point = 3;
+}
+
+message LidarScan { repeated LidarScanFrame = 1; }

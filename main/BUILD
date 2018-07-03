@@ -19,3 +19,13 @@ cc_binary(
         "@com_google_absl//absl/time",
     ],
 )
+
+cc_binary(
+    name = "turn_servo_main",
+    srcs = ["turn_servo_main.cc"],
+    deps = [
+        "//dynamixel_sdk_linux:dynamixel_sdk",
+        "@com_google_absl//absl/strings",
+        "@com_google_absl//absl/time",
+    ],
+)
