@@ -104,7 +104,7 @@ void dxl_hal_close() {
 }
 
 int dxl_hal_set_baud(float baudrate) {
-  struct serial_struct serinfo;
+  // struct serial_struct serinfo;
 
   if (gSocket_fd == -1)
     return 0;
