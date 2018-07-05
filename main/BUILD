@@ -1,13 +1,5 @@
 # Main method for this program.
 
-# TODO(samcliu): Add utils library and clean up sweeps main.
-# cc_library(
-#     name = "",
-#     srcs = [],
-#     hdrs = [],
-#     deps = [],
-# )
-
 cc_binary(
     name = "collect_sweeps_main",
     srcs = ["collect_sweeps_main.cc"],

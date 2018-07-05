@@ -3,6 +3,10 @@
 #include <cstddef>
 #include <iostream>
 
+// Abseil common libraries.
+#include "absl/strings/str_cat.h"
+#include "absl/strings/string_view.h"
+
 // This represents the device (/dev/ttyACM<port>).
 // So 0 means the actuator is at /dev/ttyACM0.
 constexpr int kDefaultPortnum = 0;
