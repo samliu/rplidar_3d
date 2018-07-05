@@ -1,3 +1,5 @@
+#ifndef UTIL_WIN_FUNCTIONS_H_
+#define UTIL_WIN_FUNCTIONS_H_
 // TODO(samcliu): Fix these. They don't seem to work. They were implemented by
 // the DynamixelSDK.
 //
@@ -6,8 +8,8 @@
 #include <termios.h>
 #include <unistd.h>
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 namespace util {
 namespace win_functions {
@@ -64,3 +66,4 @@ int kbhit(void) {
 }
 } // namespace win_utils
 } // namespace util
+#endif // UTIL_WIN_FUNCTIONS_H_

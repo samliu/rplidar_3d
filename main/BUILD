@@ -7,6 +7,8 @@ cc_binary(
         "//main/proto:lidar_scan_cc_proto",
         "//rplidar_lib:rplidar",
         "//rplidar_lib:rplidar_driver",
+        "//util:commandlineflags",
+        "@com_github_gflags_gflags//:gflags",
         "@com_google_absl//absl/strings",
         "@com_google_absl//absl/time",
     ],

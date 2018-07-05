@@ -17,7 +17,15 @@
 #include "absl/time/clock.h"
 #include "absl/time/time.h"
 
+// Protocol buffers.
 #include "main/proto/lidar_scan.pb.h"
+
+#include "util/commandlineflags.h"
+
+DEFINE_uint32(baud_rate, 115200,
+              "Baud rate of the RPLidar A2. Refer to datasheet for details.");
+DEFINE_string(device_location, "/dev/ttyUSB0",
+              "Device location (com path). Example: `/dev/ttyUSB0`.");
 
 #ifndef _countof
 #define _countof(_Array) (int)(sizeof(_Array) / sizeof(_Array[0]))
@@ -40,17 +48,9 @@ static inline void delay(_word_size_t ms) {
 
 using namespace rp::standalone::rplidar;
 
-void print_usage(int argc, const char *argv[]) {
-  printf("A LIDAR data grabber for RPLIDAR.\n"
-         "SDK Version: " RPLIDAR_SDK_VERSION "\n"
-         "Usage:\n"
-         "%s <com port> [baudrate]\n"
-         "The default baudrate is 115200. Please refer to the datasheet for "
-         "details.\n",
-         argv[0]);
-}
+namespace {
 
-u_result capture_and_display(RPlidarDriver *driver) {
+u_result collect_spin(RPlidarDriver *driver) {
   u_result ans;
 
   // Allocate enough space for up to 720 measurements over the course of the 360
@@ -94,23 +94,18 @@ u_result capture_and_display(RPlidarDriver *driver) {
 
   return ans;
 }
+} // namespace
 
-int main(int argc, const char *argv[]) {
-  const char *opt_com_path = NULL;
-  _u32 opt_com_baudrate = 115200;
+int main(int argc, char *argv[]) {
+  // Parse flags and clear argc/arv.
+  gflags::SetUsageMessage("Retrieves lidar scans from the RPLidar A2. Remember "
+                          "to use `sudo` to run this if you run into issues "
+                          "accessing your device.");
+  gflags::ParseCommandLineFlags(&argc, &argv, /*remove_flags=*/true);
+
+  const char *opt_com_path = FLAGS_device_location.c_str();
+  _u32 opt_com_baudrate = FLAGS_baud_rate;
   u_result op_result;
-
-  // Expect one input argument (the device com port).
-  if (argc < 2) {
-    print_usage(argc, argv);
-    return -1;
-  }
-  opt_com_path = argv[1];
-
-  // Optional 2nd input argument: modified baud rate.
-  if (argc > 2) {
-    opt_com_baudrate = strtoul(argv[2], NULL, 10);
-  }
 
   // Create the driver instance.
   RPlidarDriver *driver =
@@ -164,12 +159,13 @@ int main(int argc, const char *argv[]) {
     //
     // You can force RPLidar to perform the scan operation regardless of
     // whether the motor is rotating.
-    if (IS_FAIL(driver->startScan(/*force=*/false, /*autoExpressMode=*/true))) {
+    if (IS_FAIL(driver->startScan(/*force=*/false,
+                                  /*autoExpressMode=*/true))) {
       fprintf(stderr, "Error, cannot start the scan operation.\n");
       break;
     }
 
-    if (IS_FAIL(capture_and_display(driver))) {
+    if (IS_FAIL(collect_spin(driver))) {
       fprintf(stderr, "Error, cannot grab scan data.\n");
       break;
     }
