@@ -11,7 +11,7 @@ message LidarScanPoint {
 message LidarScanFrame {
   optional int64 start_micros = 1;
   optional int64 end_micros = 2;
-  repeated LidarscanPoint scan_point = 3;
+  repeated LidarScanPoint scan_point = 3;
 }
 
-message LidarScan { repeated LidarScanFrame = 1; }
+message LidarScan { repeated LidarScanFrame scan_frame = 1; }
