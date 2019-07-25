@@ -1,18 +1,19 @@
-local_repository(
-    # Name of the Abseil repository. This name is defined within Abseil's
-    # WORKSPACE file, in its `workspace()` metadata
+# Abseil.
+git_repository(
     name = "com_google_absl",
-
-    # Expects Google's Abseil C++ library to be available in `/opt/cpp`.
-    path = "/opt/cpp/abseil-cpp",
+    commit = "8f612ebb152fb7e05643a2bcf78cb89a8c0641ad",
+    remote = "https://github.com/abseil/abseil-cpp.git",
 )
-# Alternatively use the github repo. for abseil.
-#
-# git_repository(
+# # Alternatively use a local install.
+# local_repository(
+#     # Name of the Abseil repository. This name is defined within Abseil's
+#     # WORKSPACE file, in its `workspace()` metadata
 #     name = "com_google_absl",
-#     commit = "8f612ebb152fb7e05643a2bcf78cb89a8c0641ad",
-#     remote = "https://github.com/abseil/abseil-cpp.git"
+#
+#     # Expects Google's Abseil C++ library to be available in `/opt/cpp`.
+#     path = "/opt/cpp/abseil-cpp",
 # )
+#
 
 # proto_library, cc_proto_library, and java_proto_library rules implicitly
 # depend on @com_google_protobuf for protoc and proto runtimes.

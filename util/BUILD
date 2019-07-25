@@ -8,4 +8,5 @@ cc_library(
 cc_library(
     name = "commandlineflags",
     srcs = ["commandlineflags.h"],
+    deps = ["@com_github_gflags_gflags//:gflags"],
 )

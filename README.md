@@ -5,7 +5,7 @@ syncing sweep collections with the angle of the controlling servo.
 
 ## Hermetic Build using Bazel
 
-Unfortuantely the RPLidar SDK build process used makefiles and I hate them. So I
+Unfortunately the RPLidar SDK build process used makefiles and I hate them. So I
 re-implemented the entire build using Google's awesome Bazel library. In doing
 so I identified some random things (e.g circular dependencies, C99 mixed with
 C++ libraries, etc). It was nice to get all that untangled; now if you want to
